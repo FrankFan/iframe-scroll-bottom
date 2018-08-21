@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>Test Scroll</title>
+    <script src="assets/vconsole.min.js"></script>
+    <style>
+      html,body{
+        height: 100%;
+        margin: 0;
+      }
+      #outer {
+        height: 100%;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+      .terms {
+        position: relative;
+      }
+      .attention {
+        background: #FFF9C6;
+        font-size:12px;
+        color:#FB9D30;
+        padding:8px 16px;
+        width: 100%;
+        margin: 0;
+      }
+      iframe {
+        border:none;
+        width:100%;
+        height: 100%;
+      }
+      #footer {
+        background:#fff;
+        position: fixed;
+        left:0%;
+        bottom:0%;
+        width:100%;
+        z-index: 10;
+      }
+      button {
+        border:none;
+        background:none;
+        padding:0px;
+      }
+      .buttonBlue {
+        background:#266bb7;
+        color:#fff;
+        height:40px;
+        line-height:40px;
+        width:100%;
+        display: block;
+        font-size:18px;
+        text-align:center;
+        border-radius:0;
+        border:none;
+      }
+      .buttonDisabled {
+        opacity: 0.5;
+      }
+      :focus {
+        outline: 0;
+      }
+      .headerDefault {
+        position:relative;
+        text-align:center;
+        height:50px;
+        line-height:50px;
+        border-bottom:1px solid #ececec;
+        font-size:12px;
+      }
+      .headerDefault .back {
+        position:absolute;
+        left:4.4%;
+        top:13px;
+      }
+      .headerDefault .back img {
+        width:24px;
+      }
+      .headerDefault .title {
+        font-size: 18px;
+        color: #333;
+        letter-spacing: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <div id="header">
+        <div class="headerDefault clearfix">
+          <span class="back"><img src="/assets/backicon.png" /></span>
+          <span class="title">Terms of Service</span>
+        </div>
+        <p class="attention">Please scroll down and read to the end, then click Accept.</p>
+      </div>
+      <iframe src="/iframe/inner-iframe.html"></iframe>
+      <div id="footer">
+        <button class="buttonBlue buttonDisabled" id="button">Accept</button>
+      </div>
+    </div>
+    <script>
+    // var vConsole = new VConsole();
+    window.addEventListener('message',function(e){
+      console.log(e.data.body);        //hello world
+      if (e.data.body == 'yes') {
+        document.getElementById('button').disabled=false
+        document.getElementById('button').setAttribute('class','buttonBlue')
+      }
+    });
+    </script>
+  </body>
+</html>

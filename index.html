@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <title>Test Scroll</title>
+    <title>Scroll to Bottom in iframe</title>
     <script src="assets/vconsole.min.js"></script>
     <style>
       html,body{
@@ -30,13 +30,13 @@
       iframe {
         border:none;
         width:100%;
-        height: 100%;
+        height: 80%;
       }
       #footer {
         background:#fff;
         position: fixed;
-        left:0%;
-        bottom:0%;
+        left: 0;
+        bottom: 0;
         width:100%;
         z-index: 10;
       }
@@ -95,20 +95,19 @@
         </div>
         <p class="attention">Please scroll down and read to the end, then click Accept.</p>
       </div>
-      <iframe src="/iframe/inner-iframe.html"></iframe>
+      <iframe src="/iframe/paper-iframe.html"></iframe>
       <div id="footer">
         <button class="buttonBlue buttonDisabled" id="button">Accept</button>
       </div>
     </div>
     <script>
-    // var vConsole = new VConsole();
-    window.addEventListener('message',function(e){
-      console.log(e.data.body);        //hello world
-      if (e.data.body == 'yes') {
-        document.getElementById('button').disabled=false
-        document.getElementById('button').setAttribute('class','buttonBlue')
-      }
-    });
+      // var vConsole = new VConsole();
+      window.addEventListener('message',function(e){
+        if (e.data.body == 'yes') {
+          document.getElementById('button').disabled = false;
+          document.getElementById('button').setAttribute('class','buttonBlue');
+        }
+      });
     </script>
   </body>
 </html>

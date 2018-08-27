@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,12 +9,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <title></title>
-    <link href="http://127.0.0.1:9999/style/protocal.css" rel="stylesheet" type="text/css"/>
+    <title>https://service.cashalo.com/paper/present?presentId=7e13be10a77711e8aea89dcfc33c7aea</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            *:before,
+            *:after {
+            box-sizing: border-box;
+            }
+
+            body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+            margin: 0;
+            padding: 0;
+            }
+
+			/* css */
+			html,body{
+				height: 100%;
+			}
+			#app{
+				height: 100%;
+				overflow: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+            body {
+            font-size: 14px;
+            color: #333;
+            font-family: Helvetica, sans-serif;
+            }
+
+            ul, ol {
+            list-style: none;
+            }
+
+            input::-ms-clear, input::-ms-reveal {
+            display: none;
+            }
+
+            button {
+            cursor: pointer;
+            }
+
+            .bg-white {
+            background-color: #ffffff;
+            }
+            .text-center {
+            text-align: center;
+            }
+            .protocol {
+            padding: 10px;
+            word-wrap:break-word;
+            color: #4a4a4a;
+            }
+            .protocol h1 {
+            font-size: 15px;
+            margin: 8px 0;
+            }
+            .protocol h1 small {
+            font-weight: normal;
+            font-size: 14px;
+            }
+            .protocol h2 {
+            font-size: 15px;
+            margin: 5px 0;
+            }
+            .protocol p {
+            line-height: 1.5;
+            font-size: 14px;
+            margin-top: 12px;
+            }
+            .agreement p {
+            text-indent: 0px;
+            font-size: 14px;
+            }
+            .protocol .table {
+            width: 100%;
+            margin-top: 13px;
+            border-collapse: collapse;
+            border-top: 1px solid #ececec;
+            border-left: 1px solid #ececec;
+            }
+            .protocol .table td {
+            border-right: 1px solid #ececec;
+            border-bottom: 1px solid #ececec;
+            width: 25%;
+            padding-left: 10px;
+            font-size: 12px;
+            word-break:break-all;
+            }
+            .protocol ul {
+            list-style: disc;
+            padding-left: 20px;
+            }
+            .protocol ul li {
+            margin-top: 13px;
+            font-size: 14px;
+            }
+            .error {
+            color: red;
+            }
+    </style>
   </head>
   <body class="bg-white">
     <div id="app">
-      <div id="protocol" class="protocol">
+      <div class="protocol">
         <p>By using, accessing or browsing the Cashalo facility (the “Facility”) on the website, mobile application, or other related digital medium or media (each and collectively the “Site”), you signify that you have read and understood these Terms of Service and agree to be bound by the same. Upon your use of the Site, these Terms of Service shall be a binding agreement between you and Oriente Express Techsystem Corporation (the “Company”). If you do not agree, do not fully understand or have reservations with respect to any provision of these Terms of Service, please exit this Site.</p>
         <h1>Eligibility</h1>
         <p>This Site is intended solely for the use of an individual at least eighteen (18) years of age,  in good credit standing, and has the legal capacity to enter into binding agreements, specifically the availment of products and/or services offered in this Facility.</p>
@@ -113,11 +214,32 @@
         <p>In accordance with the above, you hereby authorize and designate the Company, as your authorized representative and attorney-in-fact to assign, sell, or otherwise dispose/assign the NPL to a third party, upon prior notice. The Company will inform you, via email of such assignment and shall credit the unpaid principal, interest, and penalties to your account on record.  </p>
         <h1>ACCEPTANCE</h1>
         <p>I confirm having read and understood and agree to the foregoing Terms of Service. By accepting this Terms of Service, the Privacy Policy you signify your express consent in accordance with Republic Act No. 10173, otherwise referred to as the Data Privacy Act of 2012 and its Implementing Rules and Regulations (promulgated 24 August 2016) as well as other applicable confidentiality and data privacy laws of the Philippines. You agree to hold the Company, its officers, directors and stockholders, free and harmless from any and all liabilities, damages, actions, claims, and suits in connection with the implementation or processing of Personal Information in relation to your consent or authorization under these Terms of Service.</p>
-        <h1> Khan123 </h1>
+        <h1> A9123123012 </h1>
         <h1>DIGITALLY SIGNED</h1>
         <p>A Non-Performing Loan is defined as any loan that is in default, as provided under the applicable loan document. </p>
       </div>
     </div>
-    <script src="http://127.0.0.1:9999/js/protocal.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var app = document.getElementById("app");
+        var nScrollHeight = app.scrollHeight; // 内容的总高度
+        var nAppHeight = parseFloat(getComputedStyle(app).height); // #app的高度
+        app.addEventListener('scroll', function () {
+          var nScrollTop = app.scrollTop;  // 实际滚动偏移高度
+          if(nScrollHeight <= nScrollTop + nAppHeight + 15){
+            if (window.agreement) { // android
+              window.agreement.scroll();
+            } else if (window.webkit && JSON.stringify(window.webkit) !== '{}') {
+              // iOS
+              window.webkit.messageHandlers.agreement.postMessage({ body: 'yes' });
+            } else { // H5
+              window.parent.postMessage({ body: 'yes' },'*');
+            }
+            console.info(nScrollHight+","+nScrollTop+","+nAppHight);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
+
